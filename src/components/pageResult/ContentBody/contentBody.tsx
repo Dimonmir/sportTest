@@ -2,15 +2,18 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { FC, useLayoutEffect, useState } from "react";
 import { BoxButton, SBox } from "./s-contentBody";
 import { Sport, SportKeys } from "../../../dictionary/sport";
+import { textMail } from "../../func/mail";
 
 interface IContentBody {
     sport: SportKeys[],
 }
 
 const ContentBody:FC<IContentBody> = ({sport})=> {
-    const [mail, setMail] = useState("")
+    const [phone, setPhone] = useState("")
+    const [name, setName] = useState("")
     const [sportLocal, setSportLocal] = useState<SportKeys[]>(sport)
-    const handleInput = (e:any) => setMail(e.target.value);
+    const handleInputPhone = (e:any) => setPhone(e.target.value);
+    const handleInputName = (e:any) => setName(e.target.value);
     useLayoutEffect(()=>{
         if (sportLocal.length == 0)  {
             setSportLocal(["bas", "gand", "greco", "karate", "konk", "lyji", "plav", "tyj",  "fig", "foot", "hoc"])
@@ -44,15 +47,22 @@ const ContentBody:FC<IContentBody> = ({sport})=> {
             </Box>
             <BoxButton>
                 <Box className="boxContainer">
-                    <Typography variant="h6" color={"primary"}><b>Отправить на почту</b></Typography>
-                    <Typography variant="h6" color={"common"} align="left">Введите почту</Typography>
+                    <Typography variant="h6" color={"primary"}><b>Давайте свяжемся с вами!</b></Typography>
+                    <Typography variant="h6" color={"common"} align="left">Введите телефон</Typography>
                     <TextField 
                         id="mail"                        
-                        label="sport@mail.ru"
-                        value={mail}
-                        onChange={handleInput}
+                        label="7999999999"
+                        value={phone}
+                        onChange={handleInputPhone}
                         variant="outlined" />
-                    <Button  className="button" variant="contained" color='secondary' fullWidth={false}>Отправить</Button>
+                    <Typography variant="h6" color={"common"} align="left">Введите ваше имя</Typography>
+                    <TextField 
+                        id="mail"                        
+                        label="Имя"
+                        value={name}
+                        onChange={handleInputName}
+                        variant="outlined" />
+                    <Button  className="button" variant="contained" color='secondary' fullWidth={false}><a href={textMail(phone, name, sport)}>Отправить</a></Button>
                 </Box>
                 <Box className="boxContainer">
                     <Typography variant="h6" color={"primary"}><b>Печать</b></Typography>
