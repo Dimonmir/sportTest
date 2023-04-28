@@ -7,7 +7,11 @@ export const SBox = styled(Box)`
     flex-wrap: wrap;
     align-content: center;
     gap: 20px;
-    height: 40px;
+    height: 40px;       
+     
+    @media (max-width: 576px) {
+        justify-content: space-between;
+    }
 `;
 
 export const STypography = styled(Typography)`

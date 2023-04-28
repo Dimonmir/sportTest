@@ -8,3 +8,13 @@
     padding: 0;
     margin: 0;
 }
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+input {
+    background-color: white !important;
+    border-radius: 5px;
+}

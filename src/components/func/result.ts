@@ -1,5 +1,5 @@
 import { SportKeys } from "../../dictionary/sport";
-import { normaBoy6Anthropometry } from "./ageAnthropometry";
+import { normaBoy10Anthropometry, normaBoy11Anthropometry, normaBoy12Anthropometry, normaBoy6Anthropometry, normaBoy7Anthropometry, normaBoy8Anthropometry, normaBoy9Anthropometry, normaGirl10Anthropometry, normaGirl11Anthropometry, normaGirl12Anthropometry, normaGirl6Anthropometry, normaGirl7Anthropometry, normaGirl8Anthropometry, normaGirl9Anthropometry } from "./ageAnthropometry";
 import { normaBoy10, normaBoy11, normaBoy12, normaBoy6, normaBoy7, normaBoy8, normaBoy9, normaGirl10, normaGirl11, normaGirl12, normaGirl6, normaGirl7, normaGirl8, normaGirl9 } from "./ageSport";
 import { IGetValues, IGetResult, INormReq, INormRes, ISport, INormResAnthropometry } from "./models";
 import { sport } from "./sport";
@@ -28,55 +28,67 @@ const getResult = (values:IGetValues):IGetResult => {
     switch (values.age) {
         case "6":
             if (values.gender === "Boy") {
-                res.sports = calcResSport(normaBoy6(param), paramTest)
                 res.anthropometry = calcResAnthropometry(normaBoy6Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaBoy6(param), paramTest, res.anthropometry)
             } else {
-                res.sports = calcResSport(normaGirl6(param), paramTest)
-                res.anthropometry = calcResAnthropometry(normaBoy6Anthropometry(), res.anthropometry)
+                res.anthropometry = calcResAnthropometry(normaGirl6Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaGirl6(param), paramTest, res.anthropometry)
             }
             break;
         case "7":
             if (values.gender === "Boy") {
-                res.sports = calcResSport(normaBoy7(param), paramTest)
+                res.anthropometry = calcResAnthropometry(normaBoy7Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaBoy7(param), paramTest, res.anthropometry)
             } else {
-                res.sports = calcResSport(normaGirl7(param), paramTest)
+                res.anthropometry = calcResAnthropometry(normaGirl7Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaGirl7(param), paramTest, res.anthropometry)
             }
             break;
         case "8":
             if (values.gender === "Boy") {
-                res.sports = calcResSport(normaBoy8(param), paramTest)
+                res.anthropometry = calcResAnthropometry(normaBoy8Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaBoy8(param), paramTest, res.anthropometry)
             } else {
-                res.sports = calcResSport(normaGirl8(param), paramTest)
+                res.anthropometry = calcResAnthropometry(normaGirl8Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaGirl8(param), paramTest, res.anthropometry)
             }
             break;
         case "9":
             if (values.gender === "Boy") {
-                res.sports = calcResSport(normaBoy9(param), paramTest)
+                res.anthropometry = calcResAnthropometry(normaBoy9Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaBoy9(param), paramTest, res.anthropometry)
 
             } else {
-                res.sports = calcResSport(normaGirl9(param), paramTest)
+                res.anthropometry = calcResAnthropometry(normaGirl9Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaGirl9(param), paramTest, res.anthropometry)
 
             }
             break;
         case "10":
             if (values.gender === "Boy") {
-                res.sports = calcResSport(normaBoy10(param), paramTest)
+                res.anthropometry = calcResAnthropometry(normaBoy10Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaBoy10(param), paramTest, res.anthropometry)
             } else {
-                res.sports = calcResSport(normaGirl10(param), paramTest)
+                res.anthropometry = calcResAnthropometry(normaGirl10Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaGirl10(param), paramTest, res.anthropometry)
             }
             break;
         case "11":
             if (values.gender === "Boy") {
-                res.sports = calcResSport(normaBoy11(param), paramTest)
+                res.anthropometry = calcResAnthropometry(normaBoy11Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaBoy11(param), paramTest, res.anthropometry)
             } else {
-                res.sports = calcResSport(normaGirl11(param), paramTest)
+                res.anthropometry = calcResAnthropometry(normaGirl11Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaGirl11(param), paramTest, res.anthropometry)
             }
             break;
         case "12":
             if (values.gender === "Boy") {
-                res.sports = calcResSport(normaBoy12(param), paramTest)
+                res.anthropometry = calcResAnthropometry(normaBoy12Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaBoy12(param), paramTest, res.anthropometry)
             } else {
-                res.sports = calcResSport(normaGirl12(param), paramTest)
+                res.anthropometry = calcResAnthropometry(normaGirl12Anthropometry(), res.anthropometry)
+                res.sports = calcResSport(normaGirl12(param), paramTest, res.anthropometry)
             }
             break;
     
@@ -86,17 +98,18 @@ const getResult = (values:IGetValues):IGetResult => {
     return res
 }
 
-function calcResSport(param:INormRes[], values:string[]):SportKeys[]{
+function calcResSport(param:INormRes[], values:string[], paramAntry:IGetResult["anthropometry"]):SportKeys[]{
     let calc:ISport = {
         flexibility: 0,
         power: 0,
         speed: 0,
-        coordination: 0,
+        koordination: 0,
         stamina: 0
     }
     param.map((item, key)=>{
-        if (Number(values[key]) > item.norm.min && Number(values[key]) < item.norm.max) {
+        if (Number(values[key]) >= item.norm.min && Number(values[key]) < item.norm.max) {
             item.type.map((value)=>{
+                console.log(item.less)
                 switch (value) {
                     case "flexibility":
                         calc.flexibility += 1
@@ -107,8 +120,8 @@ function calcResSport(param:INormRes[], values:string[]):SportKeys[]{
                     case "speed":
                         calc.speed += 1
                         break;
-                    case "coordination":
-                        calc.coordination += 1
+                    case "koordination":
+                        calc.koordination += 1
                         break;
                     case "stamina":
                         calc.stamina += 1
@@ -117,35 +130,98 @@ function calcResSport(param:INormRes[], values:string[]):SportKeys[]{
                         break;
                 }
             })
-        } else {
-            if (Number(values[key]) > item.norm.min){
+        } 
+        if (Number(values[key]) > item.norm.max){
                 item.type.map((value)=>{
                     switch (value) {
                         case "flexibility":
-                            calc.flexibility += 2
+                            if (item.less) {
+                                calc.flexibility += 0
+                            } else {
+                                calc.flexibility += 2
+                            }
                             break;
                         case "power":
-                            calc.power += 2
+                            if (item.less) {
+                                calc.power += 0
+                            } else {
+                                calc.power += 2
+                            }
                             break;
                         case "speed":
-                            calc.speed += 2
+                            if (item.less) {
+                                calc.speed += 0
+                            } else {
+                                calc.speed += 2
+                            }
                             break;
-                        case "coordination":
-                            calc.coordination += 2
+                        case "koordination":
+                            if (item.less) {
+                                calc.koordination += 0
+                            } else {
+                                calc.koordination += 2
+                            }
                             break;
                         case "stamina":
-                            calc.stamina += 2
+                            if (item.less) {
+                                calc.stamina += 0
+                            } else {
+                                calc.stamina += 2
+                            }
                             break;
                         default:
                             break;
                     }
                 })
-            } 
+        } 
+        if (Number(values[key]) < item.norm.min){
+            item.type.map((value)=>{
+                switch (value) {
+                    case "flexibility":
+                        if (item.less) {
+                            calc.flexibility += 2
+                        } else {
+                            calc.flexibility += 0
+                        }
+                        break;
+                    case "power":
+                        if (item.less) {
+                            calc.power += 2
+                        } else {
+                            calc.power += 0
+                        }
+                        break;
+                    case "speed":
+                        if (item.less) {
+                            calc.speed += 2
+                        } else {
+                            calc.speed += 0
+                        }
+                        break;
+                    case "koordination":
+                        if (item.less) {
+                            calc.koordination += 2
+                        } else {
+                            calc.koordination += 0
+                        }
+                        break;
+                    case "stamina":
+                        if (item.less) {
+                            calc.stamina += 2
+                        } else {
+                            calc.stamina += 0
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            })
         }
     })
 
-    let res = sport(calc);
-
+    console.log(calc)
+    let res = sport(paramAntry, calc);
+    console.log(res)
     return res
 }
 
@@ -182,7 +258,7 @@ function calcResAnthropometry(param:INormResAnthropometry[], anthropometry:IGetR
                         calc.weightText = "Средний вес"
                     }
                     if (Number(calc.weight) > item.norm.max) {
-                        calc.weightText = "Избыточный рост"
+                        calc.weightText = "Избыточный вес"
                     }
                 break;
 

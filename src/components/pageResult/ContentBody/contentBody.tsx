@@ -1,5 +1,5 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
-import { FC, useLayoutEffect, useState } from "react";
+import { ChangeEvent, FC, useLayoutEffect, useState } from "react";
 import { BoxButton, SBox } from "./s-contentBody";
 import { Sport, SportKeys } from "../../../dictionary/sport";
 import { textMail } from "../../func/mail";
@@ -20,13 +20,13 @@ const ContentBody:FC<IContentBody> = ({sport})=> {
         } 
     }, [])
     return (
-        <SBox sx={{textAlign: "center"}}>
-            <Typography variant="h4" color={"primary"}><b>К каким видам спорта предрасположен Ваш ребенок?</b></Typography>
+        <SBox sx={{textAlign: "center"}} id="report">
+            <Typography variant="h4" color={"primary"} className="header"><b>К каким видам спорта предрасположен Ваш ребенок?</b></Typography>
             <Box className="boxCardList">
             {
                 sport.length == 0 && 
                 
-                <Typography variant="h5" color={"secondary"}><b>К сожалению мы не смогли вам подобрать спорт, возможно вы посмотрите все варианты?</b></Typography>
+                <Typography variant="h6" color={"secondary"}><b>К сожалению мы не смогли подобрать для Вас подходящий вид спорта, возможно вы посмотрите все варианты?</b></Typography>
             }
             {
             sportLocal.map((item)=>{
@@ -40,11 +40,12 @@ const ContentBody:FC<IContentBody> = ({sport})=> {
                                 <Typography key={`${item}`} variant="subtitle1">{text}<br/></Typography>
                             ])}
                         </Box>
-                        <img src={temp.url}/>
+                        <img className="boxImg" src={temp.url}/>
                     </SBox>
                 )
             })}
             </Box>
+            <Button  className="button InBox" variant="contained" color='secondary' fullWidth={false}><a href="https://xn--52-kmc.xn--80aafey1amqq.xn--d1acj3b/directivities?organizer=2284" target="_blank">Записаться</a></Button>
             <BoxButton>
                 <Box className="boxContainer">
                     <Typography variant="h6" color={"primary"}><b>Давайте свяжемся с вами!</b></Typography>
@@ -62,7 +63,7 @@ const ContentBody:FC<IContentBody> = ({sport})=> {
                         value={name}
                         onChange={handleInputName}
                         variant="outlined" />
-                    <Button  className="button" variant="contained" color='secondary' fullWidth={false}><a href={textMail(phone, name, sport)}>Отправить</a></Button>
+                    <Button  className="button" variant="contained" color='primary' fullWidth={false}><a href={textMail(phone, name, sport)}>Отправить</a></Button>
                 </Box>
                 <Box className="boxContainer">
                     <Typography variant="h6" color={"primary"}><b>Печать</b></Typography>

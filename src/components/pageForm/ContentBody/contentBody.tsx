@@ -4,8 +4,11 @@ import { themeMain } from "../../../ui/theme"
 import { replace, useFormik } from "formik";
 import validationSchema from "./formikSchema";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const ContentBody = ()=> {
+    const [err, setErr] = useState("")
+
     const navigate = useNavigate();
 
     function navigateResult() {
@@ -150,7 +153,7 @@ const ContentBody = ()=> {
                     <Typography variant="subtitle1">Подтягивания <a href="/guide/task4" target="_blank" className="guide" >Инструкция</a></Typography>
                     <TextField 
                         id="task4"                        
-                        label="Введите результат"
+                        label="Мальчики - высокая перекладина, Девочки - низкая перекладина"
                         value={formik.values.task4}
                         onChange={formik.handleChange}
                         error={formik.touched.task4 && Boolean(formik.errors.task4)}
@@ -198,7 +201,7 @@ const ContentBody = ()=> {
                     <Typography variant="subtitle1">Бег 1000 м <a href="/guide/task8" target="_blank" className="guide" >Инструкция</a></Typography>
                     <TextField 
                         id="task8"                        
-                        label="Введите результат"
+                        label="Если ребенок младше 9 лет. Поставьте 1, если ребенок пробегает норматив. Поставьте 0, если норматив не выполнен"
                         value={formik.values.task8}
                         onChange={formik.handleChange}
                         error={formik.touched.task8 && Boolean(formik.errors.task8)}
@@ -218,7 +221,8 @@ const ContentBody = ()=> {
                         variant="outlined" />
                 </Box>
              </Box>
-             <Button  className="button" variant="contained" color='secondary' type="submit" fullWidth={false}>Отправить</Button>
+             <Button  className="button" variant="contained" color='secondary' type="submit" onClick={()=>{!formik.isValid ? setErr("Пожалуйста, заполните все поля!") : setErr("")}} fullWidth={false}>Отправить</Button>
+             <Typography variant="subtitle1" color={themeMain.palette.secondary.main}><b>{err}</b></Typography>
              </form>
         </SBox>
     )

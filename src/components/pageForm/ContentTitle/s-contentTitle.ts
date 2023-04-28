@@ -8,12 +8,20 @@ export const STypography = styled(Typography)`
 export const SDescription = styled(Typography)`
     color: ${themeMain.palette.primary.main};
     width: 50%;
+    @media (max-width: 576px) {
+        width: 100%;
+    }
 `;
 export const RedTypography = styled(Typography)`
     color: ${themeMain.palette.common.white};
     width: 40%;
     padding: 20px 120px;
     background-color: ${themeMain.palette.secondary.main};
+    @media (max-width: 576px) {
+        font-size: 16px !important;
+        padding: 20px 20px;  
+        width: unset;
+    }
 `;
 export const SBox = styled(Box)`
     display: flex;
@@ -34,6 +42,14 @@ export const SBox = styled(Box)`
         align-self: flex-end;
         flex: 1 1 30%;
     }
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+        margin-bottom: 40px;
+        .title{
+            font-size: 22px !important;
+        }
+    }
 `;
 
 export const BlueBox = styled(Box)`
@@ -47,4 +63,13 @@ export const BlueBox = styled(Box)`
     word-wrap:normal;
     text-align: center;
     background-color: ${themeMain.palette.primary.main};
+    
+    @media (max-width: 576px) {
+        height: 50px;
+        width: 125px;
+        font-size: 16px !important;
+        .cycle{
+            font-size: 14px !important;
+        }
+    }
 `;

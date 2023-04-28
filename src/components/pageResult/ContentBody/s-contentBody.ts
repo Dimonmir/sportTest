@@ -11,6 +11,10 @@ export const SBox = styled(Box)`
     flex-wrap: wrap;
     align-items: center;
 
+    .header {
+       margin-bottom: 40px;
+    }
+
     .boxCardList{
         display: flex;
         flex-wrap: wrap;
@@ -29,6 +33,32 @@ export const SBox = styled(Box)`
         padding: 20px 30px;
         border-radius: 5px;
         box-shadow: 0px -1px 8px 6px rgba(34, 60, 80, 0.06);
+        background-color: white;
+    }
+
+    .boxImg{
+        height: 200px;
+    }
+
+    .InBox{
+        width: 150px;
+        border-radius: 20px;
+        margin-top: 100px;
+    }
+    
+    @media (max-width: 576px) {
+        .header {
+            font-size: 24px !important;
+        }
+
+        .boxCard{
+            flex: 1 1 40%;
+            padding: 10px 15px;
+        }
+
+        .InBox{
+            margin-top: 40px;
+        }
     }
 `;
 

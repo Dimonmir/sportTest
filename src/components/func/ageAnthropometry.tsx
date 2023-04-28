@@ -190,7 +190,7 @@ export const normaGirl9Anthropometry = () : INormResAnthropometry[] => {
         {
             type: "height",
             norm: {
-                min: 126.6,
+                min: 126.4,
                 max: 138.6
             }
         },

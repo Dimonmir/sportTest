@@ -42,7 +42,8 @@ export interface INormRes {
     norm: {
         min: number,
         max: number
-    }
+    },
+    less?: boolean
 }
 
 export interface INormResAnthropometry {
@@ -57,6 +58,11 @@ export interface ISport{
     flexibility: number,
     power: number,
     speed: number,
-    coordination: number,
+    koordination: number,
     stamina:number,
+}
+
+export interface IGlobal{
+    normReq: INormReq,
+    sport: ISport
 }
