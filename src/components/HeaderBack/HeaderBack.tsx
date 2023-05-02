@@ -16,7 +16,7 @@ const HeaderBack = ()=> {
         <>
             <SBox onClick={navigateMain}>
                 <KeyboardBackspaceIcon color="info" sx={{"display": "flex", "align-self": "center"}}/>
-                <Typography className="text" variant="h6" color={themeMain.palette.common.white}>На главую</Typography>
+                <Typography className="text" variant="h6" color={themeMain.palette.common.white}>Назад</Typography>
             </SBox>
         </>
     )

@@ -222,7 +222,7 @@ const ContentBody = ()=> {
                 </Box>
              </Box>
              <Button  className="button" variant="contained" color='secondary' type="submit" onClick={()=>{!formik.isValid ? setErr("Пожалуйста, заполните все поля!") : setErr("")}} fullWidth={false}>Отправить</Button>
-             <Typography variant="subtitle1" color={themeMain.palette.secondary.main}><b>{err}</b></Typography>
+             <Typography variant="subtitle1" color={themeMain.palette.secondary.main}>{err}</Typography>
              </form>
         </SBox>
     )

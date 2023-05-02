@@ -13,7 +13,7 @@ const getResult = (values:IGetValues):IGetResult => {
             heightText: '',
             weight: values.weight,
             weightText: "",
-            IMT: String((Number(values.weight) / (Number(values.height)/100 * Number(values.height)/100)).toFixed(2)),
+            IMT: String((parseInt(values.weight) / (parseInt(values.height)/100 * parseInt(values.height)/100)).toFixed(2)),
             IMTText: "",
         },
         sports: [],
@@ -107,7 +107,7 @@ function calcResSport(param:INormRes[], values:string[], paramAntry:IGetResult["
         stamina: 0
     }
     param.map((item, key)=>{
-        if (Number(values[key]) >= item.norm.min && Number(values[key]) < item.norm.max) {
+        if (parseInt(values[key]) >= item.norm.min && parseInt(values[key]) < item.norm.max) {
             item.type.map((value)=>{
                 console.log(item.less)
                 switch (value) {
@@ -131,7 +131,7 @@ function calcResSport(param:INormRes[], values:string[], paramAntry:IGetResult["
                 }
             })
         } 
-        if (Number(values[key]) > item.norm.max){
+        if (parseInt(values[key]) > item.norm.max){
                 item.type.map((value)=>{
                     switch (value) {
                         case "flexibility":
@@ -174,7 +174,7 @@ function calcResSport(param:INormRes[], values:string[], paramAntry:IGetResult["
                     }
                 })
         } 
-        if (Number(values[key]) < item.norm.min){
+        if (parseInt(values[key]) < item.norm.min){
             item.type.map((value)=>{
                 switch (value) {
                     case "flexibility":
@@ -238,39 +238,39 @@ function calcResAnthropometry(param:INormResAnthropometry[], anthropometry:IGetR
         switch (item.type) {
             case "height":
                 calc.height = anthropometry.height
-                if (Number(calc.height) < item.norm.min ) {
+                if (parseInt(calc.height) < item.norm.min ) {
                     calc.heightText = "Низкий рост"
                 }
-                if (Number(calc.height) > item.norm.min && Number(calc.height) < item.norm.max ) {
+                if (parseInt(calc.height) >= item.norm.min && parseInt(calc.height) <= item.norm.max ) {
                     calc.heightText = "Средний рост"
                 }
-                if (Number(calc.height) > item.norm.max) {
+                if (parseInt(calc.height) > item.norm.max) {
                     calc.heightText = "Высокий рост"
                 }
                 break;
 
                 case "weight":
                     calc.weight = anthropometry.weight
-                    if (Number(calc.weight) < item.norm.min ) {
+                    if (parseInt(calc.weight) < item.norm.min ) {
                         calc.weightText = "Недостаточный вес"
                     }
-                    if (Number(calc.weight) > item.norm.min && Number(calc.weight) < item.norm.max ) {
+                    if (parseInt(calc.weight) >= item.norm.min && parseInt(calc.weight) <= item.norm.max ) {
                         calc.weightText = "Средний вес"
                     }
-                    if (Number(calc.weight) > item.norm.max) {
+                    if (parseInt(calc.weight) > item.norm.max) {
                         calc.weightText = "Избыточный вес"
                     }
                 break;
 
                 case "IMT":
                     calc.IMT = anthropometry.IMT
-                    if (Number(calc.IMT) < item.norm.min ) {
+                    if (parseInt(calc.IMT) < item.norm.min ) {
                         calc.IMTText = "Недостатая масса тела"
                     }
-                    if (Number(calc.IMT) > item.norm.min && Number(calc.IMT) < item.norm.max ) {
+                    if (parseInt(calc.IMT) >= item.norm.min && parseInt(calc.IMT) <= item.norm.max ) {
                         calc.IMTText = "Средняя масса тела"
                     }
-                    if (Number(calc.IMT) > item.norm.max) {
+                    if (parseInt(calc.IMT) > item.norm.max) {
                         calc.IMTText = "Избыточная масса тела"
                     }
                 break;
