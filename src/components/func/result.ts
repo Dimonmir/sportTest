@@ -27,7 +27,7 @@ const getResult = (values:IGetValues):IGetResult => {
 
     switch (values.age) {
         case "6":
-            if (values.gender === "Boy") {
+            if (values.gender === "boy") {
                 res.anthropometry = calcResAnthropometry(normaBoy6Anthropometry(), res.anthropometry)
                 res.sports = calcResSport(normaBoy6(param), paramTest, res.anthropometry)
             } else {
@@ -36,7 +36,7 @@ const getResult = (values:IGetValues):IGetResult => {
             }
             break;
         case "7":
-            if (values.gender === "Boy") {
+            if (values.gender === "boy") {
                 res.anthropometry = calcResAnthropometry(normaBoy7Anthropometry(), res.anthropometry)
                 res.sports = calcResSport(normaBoy7(param), paramTest, res.anthropometry)
             } else {
@@ -45,7 +45,7 @@ const getResult = (values:IGetValues):IGetResult => {
             }
             break;
         case "8":
-            if (values.gender === "Boy") {
+            if (values.gender === "boy") {
                 res.anthropometry = calcResAnthropometry(normaBoy8Anthropometry(), res.anthropometry)
                 res.sports = calcResSport(normaBoy8(param), paramTest, res.anthropometry)
             } else {
@@ -54,7 +54,7 @@ const getResult = (values:IGetValues):IGetResult => {
             }
             break;
         case "9":
-            if (values.gender === "Boy") {
+            if (values.gender === "boy") {
                 res.anthropometry = calcResAnthropometry(normaBoy9Anthropometry(), res.anthropometry)
                 res.sports = calcResSport(normaBoy9(param), paramTest, res.anthropometry)
 
@@ -65,7 +65,7 @@ const getResult = (values:IGetValues):IGetResult => {
             }
             break;
         case "10":
-            if (values.gender === "Boy") {
+            if (values.gender === "boy") {
                 res.anthropometry = calcResAnthropometry(normaBoy10Anthropometry(), res.anthropometry)
                 res.sports = calcResSport(normaBoy10(param), paramTest, res.anthropometry)
             } else {
@@ -74,7 +74,7 @@ const getResult = (values:IGetValues):IGetResult => {
             }
             break;
         case "11":
-            if (values.gender === "Boy") {
+            if (values.gender === "boy") {
                 res.anthropometry = calcResAnthropometry(normaBoy11Anthropometry(), res.anthropometry)
                 res.sports = calcResSport(normaBoy11(param), paramTest, res.anthropometry)
             } else {
@@ -83,7 +83,7 @@ const getResult = (values:IGetValues):IGetResult => {
             }
             break;
         case "12":
-            if (values.gender === "Boy") {
+            if (values.gender === "boy") {
                 res.anthropometry = calcResAnthropometry(normaBoy12Anthropometry(), res.anthropometry)
                 res.sports = calcResSport(normaBoy12(param), paramTest, res.anthropometry)
             } else {
@@ -238,6 +238,7 @@ function calcResAnthropometry(param:INormResAnthropometry[], anthropometry:IGetR
         switch (item.type) {
             case "height":
                 calc.height = anthropometry.height
+                console.log(item.norm.min)
                 if (parseInt(calc.height) < item.norm.min ) {
                     calc.heightText = "Низкий рост"
                 }
@@ -251,6 +252,7 @@ function calcResAnthropometry(param:INormResAnthropometry[], anthropometry:IGetR
 
                 case "weight":
                     calc.weight = anthropometry.weight
+                    console.log(item.norm.min)
                     if (parseInt(calc.weight) < item.norm.min ) {
                         calc.weightText = "Недостаточный вес"
                     }
