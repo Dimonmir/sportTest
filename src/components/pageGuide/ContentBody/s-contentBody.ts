@@ -44,5 +44,9 @@ export const SBox = styled(Box)`
             width: 100%;
             height: 200px;
         }
+
+        .title{
+            font-size: 26px;
+        }
     }
 `;

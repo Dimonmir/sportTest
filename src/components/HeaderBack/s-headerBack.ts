@@ -16,4 +16,8 @@ export const SBox = styled(Box)`
     text-align: center;
     background-color: ${themeMain.palette.primary.main};
     cursor: pointer;
+    @media (max-width: 576px) {
+        height: 80px;
+        width: 140px;
+    }
 `;  

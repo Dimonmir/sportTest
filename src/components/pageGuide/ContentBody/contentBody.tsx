@@ -12,7 +12,7 @@ interface IContentBody {
 const ContentBody:FC<IContentBody> = (props)=> {
     return (
         <SBox sx={{textAlign: "center"}}>
-            <Typography variant="h3" color={"primary"}><b>{props.title}</b></Typography>
+            <Typography className="title" variant="h3" color={"primary"}><b>{props.title}</b></Typography>
             <Box sx={{textAlign: "left"}}>
             {props.description.map((item)=>{
                 return <Typography variant="subtitle1">{item}</Typography>

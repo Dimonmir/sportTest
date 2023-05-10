@@ -174,7 +174,7 @@ const ContentBody = ()=> {
                 </Box>
                 <Box className="contentBodyFormItem">
                     <Typography variant="subtitle1" color={themeMain.palette.primary.main}><b>Задание №6</b></Typography>
-                    <Typography variant="subtitle1"> Челночный бег <a href="/guide/task6" target="_blank" className="guide" >Инструкция</a></Typography>
+                    <Typography variant="subtitle1"> Челночный бег (сек)<a href="/guide/task6" target="_blank" className="guide" >Инструкция</a></Typography>
                     <TextField 
                         id="task6"                        
                         label="Введите результат"
@@ -186,7 +186,7 @@ const ContentBody = ()=> {
                 </Box>
                 <Box className="contentBodyFormItem">
                     <Typography variant="subtitle1" color={themeMain.palette.primary.main}><b>Задание №7</b></Typography>
-                    <Typography variant="subtitle1"> Бег 30м <a href="/guide/task7" target="_blank" className="guide" >Инструкция</a></Typography>
+                    <Typography variant="subtitle1"> Бег 30м (сек)<a href="/guide/task7" target="_blank" className="guide" >Инструкция</a></Typography>
                     <TextField 
                         id="task7"                        
                         label="Введите результат"
@@ -198,7 +198,7 @@ const ContentBody = ()=> {
                 </Box>
                 <Box className="contentBodyFormItem">
                     <Typography variant="subtitle1" color={themeMain.palette.primary.main}><b>Задание №8</b></Typography>
-                    <Typography variant="subtitle1">Бег 1000 м <a href="/guide/task8" target="_blank" className="guide" >Инструкция</a></Typography>
+                    <Typography variant="subtitle1">Бег 1000 м (мин.сек)<a href="/guide/task8" target="_blank" className="guide" >Инструкция</a></Typography>
                     <TextField 
                         id="task8"                        
                         label="Если ребенок младше 9 лет. Поставьте 1, если ребенок пробегает норматив. Поставьте 0, если норматив не выполнен"
@@ -210,7 +210,7 @@ const ContentBody = ()=> {
                 </Box>
                 <Box className="contentBodyFormItem">
                     <Typography variant="subtitle1" color={themeMain.palette.primary.main}><b>Задание №9</b></Typography>
-                    <Typography variant="subtitle1">Стойка на одной ноге с закрытыми глазами <a href="/guide/task9" target="_blank" className="guide" >Инструкция</a></Typography>
+                    <Typography variant="subtitle1">Стойка на одной ноге с закрытыми глазами (сек)<a href="/guide/task9" target="_blank" className="guide" >Инструкция</a></Typography>
                     <TextField 
                         id="task9"                        
                         label="Введите результат"

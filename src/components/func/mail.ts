@@ -1,6 +1,6 @@
 import { Sport, SportKeys } from "../../dictionary/sport";
 
-const mailSend = "diimonmir@mail.ru"
+const mailSend = "duskc-sormovo@yandex.ru"
 
 export const textMail = (sendPhone: string, sendName: string, sendSport:SportKeys[])=>{
     let text = "mailto:";

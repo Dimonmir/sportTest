@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material"
-import { ContainerBox, SBox, SDescription, STypography, STypographyHeader, TypographyDis } from "./s-contentTitle"
+import { ContainerBox, SBox, SDescription, STypography, STypographyHeader, TypographyDes, TypographyDis } from "./s-contentTitle"
 import { themeMain } from "../../../ui/theme"
 import getResult from "../../func/result"
 import { IGetResult } from "../../func/models"
@@ -15,17 +15,17 @@ const ContentTitle:FC<IContentTitle> = ({anthropometry})=> {
                     <Box>
                         <STypography variant="h5"><b>Ваш рост</b></STypography>  
                         <SDescription variant="h6"><b>{anthropometry.height} см</b></SDescription>  
-                        <Typography variant="subtitle1"><b>{anthropometry.heightText}</b></Typography>  
+                        <TypographyDes variant="subtitle1"><b>{anthropometry.heightText}</b></TypographyDes>  
                     </Box>
                     <Box>
                         <STypography variant="h5"><b>Ваш вес</b></STypography>  
                         <SDescription variant="h6"><b>{anthropometry.weight} кг</b></SDescription>  
-                        <Typography variant="subtitle1"><b>{anthropometry.weightText}</b></Typography>  
+                        <TypographyDes variant="subtitle1"><b>{anthropometry.weightText}</b></TypographyDes>  
                     </Box>
                     <Box>
                         <STypography variant="h5"><b>Ваш ИМТ</b></STypography>  
                         <SDescription variant="h6"><b>{anthropometry.IMT}</b></SDescription>  
-                        <Typography variant="subtitle1"><b>{anthropometry.IMTText}</b></Typography>  
+                        <TypographyDes variant="subtitle1"><b>{anthropometry.IMTText}</b></TypographyDes>  
                     </Box>
                 </SBox>
                 <TypographyDis variant="subtitle1">Тестирование было направлено на выявление различных особенностей физического строения тела ребенка, позволяющее дать количественную характеристику их изменчивости и выбора наиболее подходящего вида спорта.

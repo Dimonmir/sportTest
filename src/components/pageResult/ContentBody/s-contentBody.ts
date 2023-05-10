@@ -80,4 +80,9 @@ export const BoxButton= styled(Box)`
         width: 150px;
         border-radius: 20px;
     }
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+        gap: 30px;
+    }
 `

@@ -7,6 +7,7 @@ export const STypography = styled(Typography)`
     color: #019DD8;
     @media (max-width: 576px) {
         font-size: 20px !important;
+        text-align: center;
     }
     `;
 export const STypographyHeader = styled(Typography)`
@@ -31,13 +32,25 @@ export const SDescription = styled(Typography)`
     color: #6E45B1;
     @media (max-width: 576px) {
         font-size: 18px !important;
+        text-align: center;
     }
 `;
 
 export const SBox = styled(Box)`
     display: flex;
     justify-content: space-between;
+    div{
+        flex: 0 0 33%;
+    }
 `;
+
+export const TypographyDes = styled(Typography)`
+    text-align: left;
+    @media (max-width: 576px) {
+        text-align: center;
+    }
+`
+
 export const ContainerBox = styled(Box)`
     display: flex;
     flex-direction: column;
