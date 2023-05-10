@@ -40,7 +40,7 @@ const ContentBody:FC<IContentBody> = ({sport})=> {
                                 <Typography key={`${item}`} variant="subtitle1">{text}<br/></Typography>
                             ])}
                         </Box>
-                        <img className="boxImg" src={temp.url}/>
+                        <img className="boxImg" src={temp.url} alt="sport-img"/>
                     </SBox>
                 )
             })}
