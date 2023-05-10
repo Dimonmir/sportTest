@@ -2,6 +2,7 @@
 import { Box, Container } from '@mui/material';
 import styled from 'styled-components';
 import { themeMain} from './ui/theme';
+import figury from '/assets/figury.png';
 
 export const SContainer = styled(Container)`
     height: 100%;
@@ -20,7 +21,7 @@ export const SContent = styled(Box)`
         right: 0;
         width: 100%;
         height: calc(100% - 400px);
-        background-image: url("/assets/figury.png");
+        background-image: url(${figury});
         background-size: contain;
         z-index: -1;
     }
