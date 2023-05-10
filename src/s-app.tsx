@@ -28,6 +28,8 @@ export const SContent = styled(Box)`
     
     @media (max-width: 576px) {
         padding: 20px 10px;
-        background-image: unset;
+        &::before{
+            background-image: unset;
+        }
     }
 `;
