@@ -21,7 +21,7 @@ const ContentBody:FC<IContentBody> = ({sport})=> {
     }, [])
     return (
         <SBox sx={{textAlign: "center"}} id="report">
-            <Typography variant="h4" color={"primary"} className="header"><b>К каким видам спорта предрасположен Ваш ребенок?</b></Typography>
+            <Typography variant="h4" color={"primary"} className="header"><b>К каким видам спорта предрасположен Ваш ребенок ?</b></Typography>
             <Box className="boxCardList">
             {
                 sport.length == 0 && 
