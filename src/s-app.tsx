@@ -20,7 +20,7 @@ export const SContent = styled(Box)`
         right: 0;
         width: 100%;
         height: calc(100% - 400px);
-        background-image: url("../src/assets/figury.png");
+        background-image: url("/assets/figury.png");
         background-size: contain;
         z-index: -1;
     }
