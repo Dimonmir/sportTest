@@ -18,7 +18,7 @@ const getResult = (values:IGetValues):IGetResult => {
         },
         sports: [],
     };
-
+console.log(res)
     let param: INormReq = {
         height: values.height,
         weight: values.weight,
@@ -239,13 +239,13 @@ function calcResAnthropometry(param:INormResAnthropometry[], anthropometry:IGetR
             case "height":
                 calc.height = anthropometry.height
                 console.log(item.norm.min)
-                if (parseInt(calc.height) < item.norm.min ) {
+                if (parseFloat(calc.height) < item.norm.min ) {
                     calc.heightText = "Низкий рост"
                 }
-                if (parseInt(calc.height) >= item.norm.min && parseInt(calc.height) <= item.norm.max ) {
+                if (parseFloat(calc.height) >= item.norm.min && parseFloat(calc.height) <= item.norm.max ) {
                     calc.heightText = "Средний рост"
                 }
-                if (parseInt(calc.height) > item.norm.max) {
+                if (parseFloat(calc.height) > item.norm.max) {
                     calc.heightText = "Высокий рост"
                 }
                 break;
@@ -253,26 +253,29 @@ function calcResAnthropometry(param:INormResAnthropometry[], anthropometry:IGetR
                 case "weight":
                     calc.weight = anthropometry.weight
                     console.log(item.norm.min)
-                    if (parseInt(calc.weight) < item.norm.min ) {
+                    if (parseFloat(calc.weight) < item.norm.min ) {
                         calc.weightText = "Недостаточный вес"
                     }
-                    if (parseInt(calc.weight) >= item.norm.min && parseInt(calc.weight) <= item.norm.max ) {
+                    if (parseFloat(calc.weight) >= item.norm.min && parseFloat(calc.weight) <= item.norm.max ) {
                         calc.weightText = "Средний вес"
                     }
-                    if (parseInt(calc.weight) > item.norm.max) {
+                    if (parseFloat(calc.weight) > item.norm.max) {
                         calc.weightText = "Избыточный вес"
                     }
                 break;
 
                 case "IMT":
                     calc.IMT = anthropometry.IMT
-                    if (parseInt(calc.IMT) < item.norm.min ) {
+                    if (parseFloat(calc.IMT) < item.norm.min ) {
+                        console.log(1)
                         calc.IMTText = "Недостатая масса тела"
                     }
-                    if (parseInt(calc.IMT) >= item.norm.min && parseInt(calc.IMT) <= item.norm.max ) {
+                    if (parseFloat(calc.IMT) >= item.norm.min && parseFloat(calc.IMT) <= item.norm.max ) {
+                        console.log(2)
                         calc.IMTText = "Средняя масса тела"
                     }
-                    if (parseInt(calc.IMT) > item.norm.max) {
+                    if (parseFloat(calc.IMT) > item.norm.max) {
+                        console.log(3)
                         calc.IMTText = "Избыточная масса тела"
                     }
                 break;

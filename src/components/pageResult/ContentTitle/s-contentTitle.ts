@@ -38,6 +38,7 @@ export const SDescription = styled(Typography)`
 
 export const SBox = styled(Box)`
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     div{
         flex: 0 0 33%;

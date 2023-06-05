@@ -1,4 +1,5 @@
 import { createTheme, TypeBackground } from '@mui/material';
+import { yellow } from '@mui/material/colors';
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -23,5 +24,8 @@ export const themeMain = createTheme({
       contrastText: '#1D1C21',
       dark: '#0000000',
     },
+    warning: {
+      main: "#f3f3f3"
+    }
   },
 });
